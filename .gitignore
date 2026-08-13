@@ -1,0 +1,26 @@
+# AWS credentials and configuration
+.aws/
+credentials
+config
+
+# Environment files
+.env
+.env.*
+
+# Private keys
+*.pem
+*.key
+
+# Terraform generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Operating system files
+Thumbs.db
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
