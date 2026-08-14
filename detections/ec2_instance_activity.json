@@ -1,0 +1,20 @@
+{
+  "name": "EC2 Instance Activity Detection",
+  "description": "Detects EC2 instance launch, stop, termination and modification events.",
+  "severity": "MEDIUM",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "ec2.amazonaws.com",
+    "eventNames": [
+      "RunInstances",
+      "StartInstances",
+      "StopInstances",
+      "TerminateInstances",
+      "ModifyInstanceAttribute"
+    ]
+  },
+  "response": {
+    "action": "Investigate EC2 instance activity",
+    "reason": "Unexpected EC2 lifecycle or configuration changes may indicate unauthorized activity."
+  }
+}
