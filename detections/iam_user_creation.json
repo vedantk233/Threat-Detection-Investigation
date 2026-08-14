@@ -1,0 +1,18 @@
+{
+  "name": "Unauthorized IAM User Creation",
+  "description": "Detects creation of IAM users that may indicate unauthorized access or persistence.",
+  "severity": "HIGH",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "iam.amazonaws.com",
+    "eventNames": [
+      "CreateUser",
+      "CreateAccessKey",
+      "CreateLoginProfile"
+    ]
+  },
+  "response": {
+    "action": "Investigate newly created IAM user and credentials",
+    "reason": "Unauthorized IAM users or credentials may provide persistent access to the AWS environment."
+  }
+}
