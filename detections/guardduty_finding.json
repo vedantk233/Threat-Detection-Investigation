@@ -1,0 +1,15 @@
+{
+  "name": "GuardDuty Finding Detection",
+  "description": "Detects GuardDuty security findings that indicate potentially malicious or suspicious activity.",
+  "severity": "CRITICAL",
+  "source": "Amazon GuardDuty",
+  "detection": {
+    "eventSource": "guardduty.amazonaws.com",
+    "eventType": "Finding",
+    "severityThreshold": 7
+  },
+  "response": {
+    "action": "Investigate and initiate containment workflow",
+    "reason": "High-severity GuardDuty findings may indicate active security threats."
+  }
+}
