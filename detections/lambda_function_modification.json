@@ -1,0 +1,19 @@
+{
+  "name": "Lambda Function Modification Detection",
+  "description": "Detects Lambda function creation, code updates and configuration changes.",
+  "severity": "HIGH",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "lambda.amazonaws.com",
+    "eventNames": [
+      "CreateFunction",
+      "UpdateFunctionCode",
+      "UpdateFunctionConfiguration",
+      "DeleteFunction"
+    ]
+  },
+  "response": {
+    "action": "Investigate Lambda function modification",
+    "reason": "Unexpected Lambda changes may indicate unauthorized code execution or persistence."
+  }
+}
