@@ -1,0 +1,23 @@
+{
+  "name": "IAM Privilege Escalation",
+  "description": "Detects IAM policy attachment events that may grant elevated privileges.",
+  "severity": "HIGH",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "iam.amazonaws.com",
+    "eventNames": [
+      "AttachUserPolicy",
+      "AttachRolePolicy",
+      "PutUserPolicy",
+      "PutRolePolicy"
+    ],
+    "highRiskPolicies": [
+      "AdministratorAccess",
+      "PowerUserAccess"
+    ]
+  },
+  "response": {
+    "action": "ALERT",
+    "message": "Potential IAM privilege escalation detected."
+  }
+}
