@@ -1,0 +1,19 @@
+{
+  "name": "CloudTrail Tampering Detection",
+  "description": "Detects attempts to disable or modify CloudTrail logging that may indicate an attacker trying to hide activity.",
+  "severity": "CRITICAL",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "cloudtrail.amazonaws.com",
+    "eventNames": [
+      "StopLogging",
+      "StartLogging",
+      "DeleteTrail",
+      "UpdateTrail"
+    ]
+  },
+  "response": {
+    "action": "Investigate CloudTrail configuration change immediately",
+    "reason": "Attackers may attempt to disable or modify logging to conceal malicious activity."
+  }
+}
