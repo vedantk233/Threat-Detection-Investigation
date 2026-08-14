@@ -1,0 +1,21 @@
+{
+  "name": "Security Group Change Detection",
+  "description": "Detects security group changes that may expose EC2 resources to unauthorized access.",
+  "severity": "HIGH",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "ec2.amazonaws.com",
+    "eventNames": [
+      "AuthorizeSecurityGroupIngress",
+      "AuthorizeSecurityGroupEgress",
+      "RevokeSecurityGroupIngress",
+      "RevokeSecurityGroupEgress",
+      "CreateSecurityGroup",
+      "DeleteSecurityGroup"
+    ]
+  },
+  "response": {
+    "action": "Investigate security group modification",
+    "reason": "Unauthorized security group changes may expose EC2 resources."
+  }
+}
