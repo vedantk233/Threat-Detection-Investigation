@@ -1,0 +1,17 @@
+{
+  "name": "Root Account Activity",
+  "description": "Detects AWS root account activity recorded in CloudTrail.",
+  "severity": "CRITICAL",
+  "source": "AWS CloudTrail",
+  "detection": {
+    "eventSource": "signin.amazonaws.com",
+    "userType": "Root",
+    "eventName": [
+      "ConsoleLogin"
+    ]
+  },
+  "response": {
+    "action": "Investigate immediately",
+    "reason": "Root account activity may indicate unauthorized or high-risk access."
+  }
+}
